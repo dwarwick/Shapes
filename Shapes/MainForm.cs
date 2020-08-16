@@ -46,6 +46,62 @@ namespace Shapes
              * this method
              */
         }
+
+        private void CreateNewBox()
+        {
+            /*
+             * Note that in newer versions of
+             * Visual Studio, these variables
+             * can be "in-lined" below, but
+             * I am declaring them this way
+             * for backwards compatibility.
+             */
+
+            int iLength;
+            int iHeight;
+            int iWidth;
+            int iOriginX;
+            int iOriginY;
+
+            if (int.TryParse(txtLength.Text, out iLength)
+                && int.TryParse(txtWidth.Text, out iWidth)
+                && int.TryParse(txtHeight.Text, out iHeight)
+                && int.TryParse(txtBox_X.Text, out iOriginX)
+                && int.TryParse(txtBox_Y.Text, out iOriginY)
+                )
+            {
+                Box box = new Box(iHeight, iWidth, iLength, iOriginX, iOriginY);
+                m_myBoxes.Add(box);
+            }
+        }
+
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
+            // all code in this method will execute 
+            // when the Draw button is clicked
+
+            CreateNewBox();
+            this.Refresh();
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            // All code inside this method when the
+            // form is repainted.
+
+
+            if (m_myBoxes.Count > 0)
+            {
+                DrawBox(e); 
+            }
+        }
+
+        private void DrawBox(PaintEventArgs e)
+        {
+            foreach (Box myBox in m_myBoxes)
+                myBox.Draw(e.Graphics);
+        }
+
     } // Closes MainForm class
 
     class Box

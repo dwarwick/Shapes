@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBox_X = new System.Windows.Forms.TextBox();
             this.txtHeight = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBox_Y = new System.Windows.Forms.TextBox();
             this.txtWidth = new System.Windows.Forms.TextBox();
             this.txtLength = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,12 +41,12 @@
             this.btnDraw = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtBox_X
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 176);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(30, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtBox_X.Location = new System.Drawing.Point(12, 176);
+            this.txtBox_X.Name = "txtBox_X";
+            this.txtBox_X.Size = new System.Drawing.Size(30, 20);
+            this.txtBox_X.TabIndex = 0;
             // 
             // txtHeight
             // 
@@ -55,12 +55,12 @@
             this.txtHeight.Size = new System.Drawing.Size(100, 20);
             this.txtHeight.TabIndex = 1;
             // 
-            // textBox3
+            // txtBox_Y
             // 
-            this.textBox3.Location = new System.Drawing.Point(82, 176);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(30, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtBox_Y.Location = new System.Drawing.Point(82, 176);
+            this.txtBox_Y.Name = "txtBox_Y";
+            this.txtBox_Y.Size = new System.Drawing.Size(30, 20);
+            this.txtBox_Y.TabIndex = 2;
             // 
             // txtWidth
             // 
@@ -129,6 +129,7 @@
             this.btnDraw.TabIndex = 10;
             this.btnDraw.Text = "Draw";
             this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
             // 
             // MainForm
             // 
@@ -143,12 +144,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLength);
             this.Controls.Add(this.txtWidth);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBox_Y);
             this.Controls.Add(this.txtHeight);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBox_X);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Shapes";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,9 +158,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBox_X;
         private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBox_Y;
         private System.Windows.Forms.TextBox txtWidth;
         private System.Windows.Forms.TextBox txtLength;
         private System.Windows.Forms.Label label1;
